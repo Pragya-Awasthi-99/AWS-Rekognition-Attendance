@@ -1,0 +1,25 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.egg-info/
+
+# React / Node
+liveness-ui/node_modules/
+liveness-ui/.env
+liveness-ui/dist/
+
+# Flask static build output (generated, not source)
+static/liveverify/
+
+# AWS / Secrets
+.aws/
+aws_test.py
+rekognition_test.py
+
+# OS
+.DS_Store
+Thumbs.db

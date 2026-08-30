@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    VisionAI Pro | Safety Vision
+</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5f8ff,
+            #edf2f9
+        );
+
+    color: #172033;
+}
+
+.navbar {
+
+    background:
+        linear-gradient(
+            120deg,
+            #06152e,
+            #102a56
+        );
+
+    color: white;
+
+    padding:
+        18px 5%;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.18);
+}
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.brand-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4778ff,
+            #923cff
+        );
+}
+
+.brand h2 {
+
+    margin: 0;
+}
+
+.brand small {
+
+    color: #b7c8e7;
+}
+
+.aws-badge {
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    background:
+        rgba(255,255,255,.06);
+
+    border-radius: 12px;
+
+    padding:
+        10px 18px;
+
+    text-align: center;
+}
+
+.aws-badge strong {
+
+    display: block;
+}
+
+.aws-badge span {
+
+    color: #ffb64a;
+
+    font-size: 12px;
+}
+
+.hero {
+
+    color: white;
+
+    padding:
+        48px
+        5%
+        78px;
+
+    background:
+
+        radial-gradient(
+            circle at 84% 35%,
+            rgba(255,170,40,.28),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 72% 75%,
+            rgba(57,198,133,.22),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            120deg,
+            #06152e,
+            #0b2d5c
+        );
+}
+
+.hero-inner {
+
+    max-width: 1450px;
+
+    margin: auto;
+}
+
+.hero-label {
+
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        clamp(
+            38px,
+            4vw,
+            58px
+        );
+}
+
+.hero h1 span {
+
+    color: #ffbd5c;
+}
+
+.hero p {
+
+    max-width: 820px;
+
+    color: #c9d7ed;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.container {
+
+    width: 94%;
+
+    max-width: 1450px;
+
+    margin:
+        -42px auto
+        60px;
+}
+
+.workspace {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(330px, 440px)
+        1fr;
+
+    gap: 22px;
+}
+
+.panel {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.09);
+}
+
+.panel-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin:
+        0 0 20px;
+
+    font-size: 21px;
+}
+
+.step {
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9d21,
+            #e75c36
+        );
+}
+
+.upload-box {
+
+    padding:
+        30px 20px;
+
+    border:
+        2px dashed
+        #bbc9e3;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fbfdff,
+            #f5f8ff
+        );
+
+    text-align: center;
+}
+
+.upload-icon {
+
+    font-size: 50px;
+}
+
+.upload-box h3 {
+
+    margin:
+        8px 0;
+}
+
+.upload-box p {
+
+    color: #738097;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.file-input {
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    border:
+        1px solid
+        #d7dfea;
+
+    border-radius: 9px;
+
+    background: white;
+}
+
+.analyze-btn {
+
+    width: 100%;
+
+    margin-top: 17px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f09a23,
+            #e55237
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(225,111,39,.25);
+}
+
+.preview-title {
+
+    margin-top: 22px;
+
+    margin-bottom: 10px;
+
+    font-weight: 700;
+
+    color: #31486c;
+}
+
+.preview-card {
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        #e1e7f0;
+
+    background: #f7f9fc;
+}
+
+.preview-card img {
+
+    width: 100%;
+
+    max-height: 460px;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: #111827;
+}
+
+.image-meta {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    padding: 12px;
+
+    color: #68758b;
+
+    font-size: 12px;
+
+    gap: 15px;
+}
+
+.summary {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.summary-card {
+
+    padding: 17px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fafcff,
+            #f4f7fb
+        );
+
+    border:
+        1px solid
+        #e5eaf3;
+}
+
+.summary-label {
+
+    color: #758095;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 7px;
+}
+
+.summary-value {
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    color: #1f3d70;
+}
+
+.good {
+
+    color: #18854a;
+}
+
+.bad {
+
+    color: #ca3535;
+}
+
+.warning {
+
+    color: #b97800;
+}
+
+.compliance {
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edfff4,
+            #f7fbff
+        );
+
+    border:
+        1px solid
+        #ccebd7;
+
+    margin-bottom: 22px;
+}
+
+.compliance h3 {
+
+    margin:
+        0 0 12px;
+}
+
+.score-head {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.score-track {
+
+    height: 14px;
+
+    border-radius: 999px;
+
+    background: #e4e9ef;
+
+    overflow: hidden;
+}
+
+.score-fill {
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2ab26f,
+            #54d49a
+        );
+}
+
+.person-card {
+
+    border:
+        1px solid
+        #e4e9f2;
+
+    border-radius: 17px;
+
+    padding: 20px;
+
+    margin-bottom: 16px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fbfcff
+        );
+}
+
+.person-header {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+.person-header h3 {
+
+    margin: 0;
+
+    color: #243d67;
+}
+
+.status {
+
+    padding:
+        7px 11px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.status.compliant {
+
+    background: #e7f8ed;
+
+    color: #177b39;
+}
+
+.status.non {
+
+    background: #ffe9e9;
+
+    color: #b52d2d;
+}
+
+.status.indeterminate {
+
+    background: #fff4dc;
+
+    color: #946000;
+}
+
+.ppe-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.ppe-item {
+
+    padding: 15px;
+
+    border-radius: 13px;
+
+    background: #f7f9fd;
+
+    border:
+        1px solid
+        #e6eaf2;
+
+    text-align: center;
+}
+
+.ppe-item .icon {
+
+    font-size: 30px;
+
+    margin-bottom: 6px;
+}
+
+.ppe-item strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.yes {
+
+    color: #168348;
+
+    font-weight: 800;
+}
+
+.no {
+
+    color: #bd3636;
+
+    font-weight: 800;
+}
+
+.equipment-list {
+
+    margin-top: 15px;
+}
+
+.equipment-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr 1fr;
+
+    gap: 8px;
+
+    padding:
+        10px 0;
+
+    border-top:
+        1px solid
+        #edf0f5;
+
+    font-size: 12px;
+}
+
+.error {
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: #fff0f0;
+
+    border:
+        1px solid
+        #ffc8c8;
+
+    color: #a12626;
+
+    margin-bottom: 18px;
+}
+
+.ready {
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff9f0,
+            #f8fbff
+        );
+
+    color: #52627c;
+
+    line-height: 1.7;
+}
+
+.no-result {
+
+    padding: 28px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    background: #fff9ed;
+
+    border:
+        1px solid
+        #f5dfac;
+
+    color: #826019;
+}
+
+.info {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #edf6ff;
+
+    color: #315f9c;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.back {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    color: #4c63d8;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+@media(max-width:1000px) {
+
+    .workspace {
+
+        grid-template-columns: 1fr;
+    }
+
+    .summary {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+
+    .summary,
+    .ppe-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .equipment-row {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="brand">
+
+    <div class="brand-icon">
+        🧠
+    </div>
+
+    <div>
+
+        <h2>
+            VisionAI Pro
+        </h2>
+
+        <small>
+            Intelligent Visual Insights
+        </small>
+
+    </div>
+
+</div>
+
+<div class="aws-badge">
+
+    <strong>
+        AWS
+    </strong>
+
+    <span>
+        Amazon Rekognition
+    </span>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-inner">
+
+    <div class="hero-label">
+
+        👷 VisionAI Workplace Safety Engine
+
+    </div>
+
+    <h1>
+
+        AI-Powered
+        <span>
+            PPE Safety Intelligence
+        </span>
+
+    </h1>
+
+    <p>
+
+        Safety Vision uses Amazon Rekognition
+        to analyze people in workplace images
+        and detect head, face and hand protective
+        equipment with person-level safety
+        compliance insights.
+
+    </p>
+
+</div>
+
+</section>
+
+<main class="container">
+
+<div class="workspace">
+
+<section class="panel">
+
+<h2 class="panel-title">
+
+    <span class="step">
+        1
+    </span>
+
+    Workplace Safety Studio
+
+</h2>
+
+<form
+    method="POST"
+    enctype="multipart/form-data"
+>
+
+<div class="upload-box">
+
+    <div class="upload-icon">
+        👷
+    </div>
+
+    <h3>
+        Upload Workplace Image
+    </h3>
+
+    <p>
+
+        Use an image containing one or more
+        people with helmets, face covers,
+        gloves or other PPE.
+
+    </p>
+
+    <input
+        class="file-input"
+        type="file"
+        name="image"
+        accept=".jpg,.jpeg,.png"
+        required
+    >
+
+</div>
+
+<button
+    class="analyze-btn"
+    type="submit"
+>
+
+    🦺 Analyze PPE Compliance
+
+</button>
+
+</form>
+
+{% if image_preview %}
+
+<div class="preview-title">
+
+    ✅ Analyzed Workplace Image
+
+</div>
+
+<div class="preview-card">
+
+    <img
+        src="{{ image_preview }}"
+        alt="Workplace PPE image"
+    >
+
+    <div class="image-meta">
+
+        <span>
+            📄 {{ filename }}
+        </span>
+
+        <span>
+            {{ image_size }} KB
+        </span>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+<a
+    href="/"
+    class="back"
+>
+
+    ← Return to VisionAI Dashboard
+
+</a>
+
+</section>
+
+<section class="panel">
+
+<h2 class="panel-title">
+
+    <span class="step">
+        2
+    </span>
+
+    PPE Safety Intelligence Report
+
+</h2>
+
+{% if error %}
+
+<div class="error">
+
+    ⚠ {{ error }}
+
+</div>
+
+{% endif %}
+
+{% if persons is not defined and not error %}
+
+<div class="ready">
+
+    <strong>
+        👷 Safety Vision Ready
+    </strong>
+
+    <br><br>
+
+    Upload a workplace image to
+    analyze PPE compliance using
+    Amazon Rekognition.
+
+</div>
+
+{% endif %}
+
+{% if persons is defined %}
+
+<div class="summary">
+
+<div class="summary-card">
+
+    <div class="summary-label">
+        People Detected
+    </div>
+
+    <div class="summary-value">
+
+        {{ total_people }}
+
+    </div>
+
+</div>
+
+<div class="summary-card">
+
+    <div class="summary-label">
+        Fully Compliant
+    </div>
+
+    <div class="summary-value good">
+
+        {{ compliant_people }}
+
+    </div>
+
+</div>
+
+<div class="summary-card">
+
+    <div class="summary-label">
+        Non-Compliant
+    </div>
+
+    <div class="summary-value bad">
+
+        {{ non_compliant_people }}
+
+    </div>
+
+</div>
+
+<div class="summary-card">
+
+    <div class="summary-label">
+        Indeterminate
+    </div>
+
+    <div class="summary-value warning">
+
+        {{ indeterminate_people }}
+
+    </div>
+
+</div>
+
+</div>
+
+{% if total_people > 0 %}
+
+<div class="compliance">
+
+<h3>
+
+    📊 Overall PPE Compliance Score
+
+</h3>
+
+<div class="score-head">
+
+    <span>
+        Required PPE Compliance
+    </span>
+
+    <span>
+
+        {{ "%.1f"|format(
+            compliance_score
+        ) }}%
+
+    </span>
+
+</div>
+
+<div class="score-track">
+
+    <div
+        class="score-fill"
+
+        style="
+            width:
+            {{ compliance_score }}%;
+        "
+    >
+    </div>
+
+</div>
+
+</div>
+
+{% endif %}
+
+{% if persons %}
+
+{% for person in persons %}
+
+<div class="person-card">
+
+<div class="person-header">
+
+<h3>
+
+    👤 Person {{ loop.index }}
+
+</h3>
+
+{% if person.status == "COMPLIANT" %}
+
+<span class="status compliant">
+
+    ✓ COMPLIANT
+
+</span>
+
+{% elif person.status == "NON_COMPLIANT" %}
+
+<span class="status non">
+
+    ⚠ NON-COMPLIANT
+
+</span>
+
+{% else %}
+
+<span class="status indeterminate">
+
+    ? INDETERMINATE
+
+</span>
+
+{% endif %}
+
+</div>
+
+<div class="ppe-grid">
+
+<div class="ppe-item">
+
+    <div class="icon">
+        ⛑️
+    </div>
+
+    <strong>
+        Head Cover
+    </strong>
+
+    {% if person.head_cover %}
+
+        <span class="yes">
+            ✓ DETECTED
+        </span>
+
+    {% else %}
+
+        <span class="no">
+            ✕ NOT CONFIRMED
+        </span>
+
+    {% endif %}
+
+</div>
+
+<div class="ppe-item">
+
+    <div class="icon">
+        😷
+    </div>
+
+    <strong>
+        Face Cover
+    </strong>
+
+    {% if person.face_cover %}
+
+        <span class="yes">
+            ✓ DETECTED
+        </span>
+
+    {% else %}
+
+        <span class="no">
+            ✕ NOT CONFIRMED
+        </span>
+
+    {% endif %}
+
+</div>
+
+<div class="ppe-item">
+
+    <div class="icon">
+        🧤
+    </div>
+
+    <strong>
+        Hand Cover
+    </strong>
+
+    {% if person.hand_cover %}
+
+        <span class="yes">
+            ✓ DETECTED
+        </span>
+
+    {% else %}
+
+        <span class="no">
+            ✕ NOT CONFIRMED
+        </span>
+
+    {% endif %}
+
+</div>
+
+</div>
+
+<div class="equipment-list">
+
+<strong>
+
+    Person Detection Confidence:
+
+</strong>
+
+{{ "%.2f"|format(
+    person.confidence
+) }}%
+
+{% for equipment in person.equipment %}
+
+<div class="equipment-row">
+
+    <div>
+
+        <strong>
+            {{ equipment.type }}
+        </strong>
+
+    </div>
+
+    <div>
+
+        Body Part:
+        {{ equipment.body_part }}
+
+    </div>
+
+    <div>
+
+        Detection:
+
+        {{ "%.2f"|format(
+            equipment.confidence
+        ) }}%
+
+    </div>
+
+    <div>
+
+        Coverage:
+
+        {% if equipment.covers %}
+
+            ✓ YES
+
+        {% else %}
+
+            ✕ NO
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="no-result">
+
+    <h3>
+        👤 No People Detected
+    </h3>
+
+    <p>
+
+        Amazon Rekognition did not
+        detect a person suitable for
+        PPE analysis in this image.
+
+    </p>
+
+</div>
+
+{% endif %}
+
+<div class="info">
+
+    ℹ Safety Vision uses
+
+    <strong>
+        Amazon Rekognition
+        DetectProtectiveEquipment
+    </strong>.
+
+    The current required PPE policy
+    for this classroom project is:
+
+    <strong>
+        head cover + face cover + hand cover
+    </strong>
+
+    with a minimum confidence of
+    {{ min_confidence }}%.
+
+    PPE results are AI detections and
+    should not replace a real workplace
+    safety inspection.
+
+</div>
+
+{% endif %}
+
+</section>
+
+</div>
+
+</main>
+
+</body>
+
+</html>

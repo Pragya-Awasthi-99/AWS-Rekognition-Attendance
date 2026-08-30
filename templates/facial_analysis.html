@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        VisionAI Pro | Facial Intelligence
+    </title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+            background:
+                linear-gradient(
+                    180deg,
+                    #f5f8ff 0%,
+                    #eef3fa 100%
+                );
+            color: #172033;
+        }
+
+        
+
+        .navbar {
+            background:
+                linear-gradient(
+                    120deg,
+                    #06152e,
+                    #102a56
+                );
+
+            color: white;
+
+            padding:
+                18px
+                5%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            box-shadow:
+                0 8px 30px
+                rgba(0, 0, 0, 0.18);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 46px;
+            height: 46px;
+
+            border-radius: 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4d7cff,
+                    #8d3cff
+                );
+
+            box-shadow:
+                0 8px 24px
+                rgba(100, 88, 255, 0.35);
+        }
+
+        .brand h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .brand small {
+            color: #b7c9e9;
+        }
+
+        .aws-badge {
+            border:
+                1px solid
+                rgba(255,255,255,0.2);
+
+            padding:
+                10px 18px;
+
+            border-radius: 12px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            text-align: center;
+        }
+
+        .aws-badge strong {
+            display: block;
+            font-size: 16px;
+        }
+
+        .aws-badge span {
+            font-size: 12px;
+            color: #ffb347;
+        }
+
+        
+
+        .hero {
+            padding:
+                42px
+                5%;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(73, 111, 255, 0.35),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    120deg,
+                    #07182f,
+                    #0c2a55
+                );
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1350px;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            margin:
+                0
+                0
+                12px;
+
+            font-size:
+                clamp(
+                    34px,
+                    4vw,
+                    58px
+                );
+
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            color: #6ea1ff;
+        }
+
+        .hero p {
+            max-width: 720px;
+            color: #c8d7ef;
+            font-size: 17px;
+            line-height: 1.6;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            margin-top: 20px;
+        }
+
+        .hero-tag {
+            border-radius: 30px;
+
+            padding:
+                8px
+                14px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            font-size: 13px;
+        }
+
+        .hero-visual {
+            min-width: 240px;
+
+            font-size: 120px;
+
+            text-align: center;
+
+            filter:
+                drop-shadow(
+                    0 20px 35px
+                    rgba(30, 128, 255, 0.5)
+                );
+        }
+
+        
+
+        .main-container {
+            width: 94%;
+            max-width: 1450px;
+
+            margin:
+                -20px
+                auto
+                50px;
+        }
+
+        .module-bar {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 12px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(155px, 1fr)
+                );
+
+            gap: 10px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(32, 58, 100, 0.10);
+
+            margin-bottom: 25px;
+        }
+
+        .module {
+            padding: 16px;
+
+            border-radius: 14px;
+
+            background: #f8faff;
+
+            min-height: 92px;
+
+            transition:
+                transform .2s,
+                box-shadow .2s;
+        }
+
+        .module:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(30, 80, 160, 0.12);
+        }
+
+        .module.active {
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4568ff,
+                    #8f3dff
+                );
+        }
+
+        .module-title {
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .module small {
+            opacity: 0.75;
+        }
+
+        
+
+        .workspace {
+            display: grid;
+
+            grid-template-columns:
+                minmax(320px, 430px)
+                1fr;
+
+            gap: 22px;
+        }
+
+        .panel {
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 24px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(32, 58, 100, 0.09);
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin:
+                0
+                0
+                20px;
+
+            font-size: 20px;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+
+            border-radius: 50%;
+
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #4b79ff,
+                    #733cff
+                );
+
+            font-size: 14px;
+        }
+
+        
+
+        .upload-zone {
+            border:
+                2px dashed
+                #b7c8e8;
+
+            border-radius: 16px;
+
+            padding:
+                28px
+                18px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fbfdff,
+                    #f5f8ff
+                );
+        }
+
+        .upload-zone .icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .upload-zone h3 {
+            margin: 6px 0;
+        }
+
+        .upload-zone p {
+            color: #76829a;
+            font-size: 13px;
+        }
+
+        .file-input {
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 10px;
+
+            border:
+                1px solid
+                #d6deeb;
+
+            border-radius: 10px;
+
+            background: white;
+        }
+
+        .analyze-btn {
+            width: 100%;
+
+            border: none;
+
+            margin-top: 18px;
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #3d71ff,
+                    #8b39ff
+                );
+
+            box-shadow:
+                0 10px 25px
+                rgba(92, 76, 255, 0.3);
+        }
+
+        .analyze-btn:hover {
+            opacity: 0.94;
+        }
+
+        
+
+        .preview-section {
+            margin-top: 22px;
+        }
+
+        .preview-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+
+            color: #263b60;
+        }
+
+        .preview-card {
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                #e1e7f0;
+
+            background: #f7f9fc;
+        }
+
+        .preview-card img {
+            display: block;
+
+            width: 100%;
+
+            max-height: 420px;
+
+            object-fit: contain;
+
+            background: #111827;
+        }
+
+        .image-meta {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            padding: 12px;
+
+            font-size: 13px;
+
+            color: #66738b;
+
+            gap: 15px;
+        }
+
+        
+
+        .error {
+            margin-bottom: 18px;
+
+            border-radius: 12px;
+
+            padding: 14px 16px;
+
+            background: #fff0f0;
+
+            border:
+                1px solid
+                #ffcaca;
+
+            color: #a12525;
+        }
+
+        .success-badge {
+            padding:
+                8px
+                14px;
+
+            border-radius: 30px;
+
+            background: #e6f8eb;
+
+            color: #16813c;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .results-header {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            margin-bottom: 22px;
+
+            gap: 15px;
+        }
+
+        
+
+        .face-block {
+            border:
+                1px solid
+                #e4e9f2;
+
+            border-radius: 18px;
+
+            padding: 20px;
+
+            margin-bottom: 22px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #fbfcff
+                );
+        }
+
+        .face-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+        .face-heading h3 {
+            margin: 0;
+        }
+
+        .top-emotion {
+            border-radius: 30px;
+
+            background: #f0ebff;
+
+            color: #6c3de0;
+
+            padding: 7px 12px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .metric-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(180px, 1fr)
+                );
+
+            gap: 12px;
+        }
+
+        .metric {
+            background:
+                linear-gradient(
+                    180deg,
+                    #fafcff,
+                    #f4f7fb
+                );
+
+            border:
+                1px solid
+                #e8edf5;
+
+            border-radius: 14px;
+
+            padding: 14px;
+        }
+
+        .metric-label {
+            font-size: 12px;
+            color: #707c90;
+
+            margin-bottom: 7px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .4px;
+        }
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: 800;
+
+            color: #172a4a;
+        }
+
+        .positive {
+            color: #16813c;
+        }
+
+        .negative {
+            color: #c53737;
+        }
+
+        .section-title {
+            margin-top: 24px;
+            margin-bottom: 14px;
+
+            font-size: 17px;
+
+            color: #293e63;
+        }
+
+        
+
+        .emotion-row {
+            display: grid;
+
+            grid-template-columns:
+                110px
+                1fr
+                75px;
+
+            gap: 12px;
+
+            align-items: center;
+
+            margin-bottom: 11px;
+
+            font-size: 13px;
+        }
+
+        .emotion-track {
+            height: 9px;
+
+            background: #e9edf4;
+
+            border-radius: 999px;
+
+            overflow: hidden;
+        }
+
+        .emotion-fill {
+            height: 100%;
+
+            border-radius: 999px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #4f76ff,
+                    #8a43ff
+                );
+        }
+
+        .sub-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(230px, 1fr)
+                );
+
+            gap: 15px;
+
+            margin-top: 20px;
+        }
+
+        .mini-card {
+            border:
+                1px solid
+                #e2e8f2;
+
+            border-radius: 15px;
+
+            padding: 16px;
+
+            background: #fbfcff;
+        }
+
+        .mini-card h4 {
+            margin:
+                0
+                0
+                14px;
+
+            color: #6041dd;
+        }
+
+        .data-line {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            padding: 8px 0;
+
+            border-bottom:
+                1px solid
+                #eef1f6;
+
+            font-size: 14px;
+        }
+
+        .data-line:last-child {
+            border-bottom: none;
+        }
+
+        
+
+        .info-box {
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            background: #edf6ff;
+
+            color: #285c9d;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+        .back-link {
+            display: inline-block;
+
+            margin-top: 24px;
+
+            text-decoration: none;
+
+            color: #4a63d8;
+
+            font-weight: 700;
+        }
+
+        
+
+        @media (
+            max-width: 900px
+        ) {
+
+            .workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .navbar {
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🧠
+        </div>
+
+        <div>
+
+            <h2>
+                VisionAI Pro
+            </h2>
+
+            <small>
+                Intelligent Visual Insights
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="aws-badge">
+
+        <strong>
+            AWS
+        </strong>
+
+        <span>
+            Amazon Rekognition
+        </span>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div>
+
+            <h1>
+                Facial
+                <span>
+                    Intelligence
+                </span>
+            </h1>
+
+            <p>
+                AI-powered facial analysis using Amazon Rekognition.
+                Upload an image to explore facial attributes,
+                confidence, emotions, pose, image quality,
+                and detection metadata in real time.
+            </p>
+
+            <div class="hero-tags">
+
+                <span class="hero-tag">
+                    ⚡ AI Powered
+                </span>
+
+                <span class="hero-tag">
+                    ☁ AWS Native
+                </span>
+
+                <span class="hero-tag">
+                    🔐 Secure Processing
+                </span>
+
+                <span class="hero-tag">
+                    📊 Real-time Insights
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+            🧬
+        </div>
+
+    </div>
+
+</section>
+
+<main class="main-container">
+
+    
+
+    <div class="module-bar">
+
+        <div class="module active">
+
+            <div class="module-title">
+                👤 Facial Intelligence
+            </div>
+
+            <small>
+                Face attributes & insights
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                🔍 Identity Match
+            </div>
+
+            <small>
+                Face comparison
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                ⭐ Star Finder
+            </div>
+
+            <small>
+                Celebrity recognition
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                🏷 Visual Discovery
+            </div>
+
+            <small>
+                Label detection
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                🔤 Vision OCR
+            </div>
+
+            <small>
+                Text detection
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                👷 Safety Vision
+            </div>
+
+            <small>
+                PPE detection
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                🛡 LiveVerify
+            </div>
+
+            <small>
+                Face liveness
+            </small>
+
+        </div>
+
+        <div class="module">
+
+            <div class="module-title">
+                📝 SmartPresence
+            </div>
+
+            <small>
+                AI attendance
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="workspace">
+
+        
+
+        <section class="panel">
+
+            <h2 class="panel-title">
+
+                <span class="step-number">
+                    1
+                </span>
+
+                Image Input Studio
+
+            </h2>
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <div class="upload-zone">
+
+                    <div class="icon">
+                        ☁️
+                    </div>
+
+                    <h3>
+                        Upload a Face Image
+                    </h3>
+
+                    <p>
+                        Select a clear JPG, JPEG or PNG image.
+                        Maximum recommended size: 10 MB.
+                    </p>
+
+                    <input
+                        class="file-input"
+                        type="file"
+                        name="image"
+                        accept=".jpg,.jpeg,.png"
+                        required
+                    >
+
+                </div>
+
+                <button
+                    class="analyze-btn"
+                    type="submit"
+                >
+                    ✨ Run AI Facial Analysis
+                </button>
+
+            </form>
+
+            {% if image_preview %}
+
+            <div class="preview-section">
+
+                <div class="preview-title">
+                    ✅ Selected Image
+                </div>
+
+                <div class="preview-card">
+
+                    <img
+                        src="{{ image_preview }}"
+                        alt="Uploaded image"
+                    >
+
+                    <div class="image-meta">
+
+                        <span>
+                            📄 {{ filename }}
+                        </span>
+
+                        <span>
+                            {{ image_size }} KB
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            <a
+                class="back-link"
+                href="/"
+            >
+                ← Return to VisionAI Dashboard
+            </a>
+
+        </section>
+
+        
+
+        <section class="panel">
+
+            <div class="results-header">
+
+                <h2 class="panel-title">
+
+                    <span class="step-number">
+                        2
+                    </span>
+
+                    AI Intelligence Report
+
+                </h2>
+
+                {% if faces %}
+
+                <div class="success-badge">
+
+                    ✓ {{ face_count }}
+
+                    {% if face_count == 1 %}
+                        Face Detected
+                    {% else %}
+                        Faces Detected
+                    {% endif %}
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+            {% if error %}
+
+            <div class="error">
+                ⚠ {{ error }}
+            </div>
+
+            {% endif %}
+
+            {% if not faces and not error %}
+
+            <div class="info-box">
+
+                <strong>
+                    Ready for analysis.
+                </strong>
+
+                <br>
+
+                Upload an image from the
+                Image Input Studio and Amazon
+                Rekognition will generate a detailed
+                facial intelligence report.
+
+            </div>
+
+            {% endif %}
+
+            {% if faces %}
+
+                {% for face in faces %}
+
+                <div class="face-block">
+
+                    <div class="face-heading">
+
+                        <h3>
+                            👤 Face {{ loop.index }}
+                        </h3>
+
+                        <span class="top-emotion">
+
+                            Dominant Emotion:
+                            {{ face.TopEmotion.Type }}
+
+                            {{ "%.1f"|format(
+                                face.TopEmotion.Confidence
+                            ) }}%
+
+                        </span>
+
+                    </div>
+
+                    
+
+                    <div class="metric-grid">
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Detection Confidence
+                            </div>
+
+                            <div class="metric-value positive">
+
+                                {{ "%.2f"|format(
+                                    face.Confidence
+                                ) }}%
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Estimated Age Range
+                            </div>
+
+                            <div class="metric-value">
+
+                                {{ face.AgeRange.Low }}
+
+                                –
+
+                                {{ face.AgeRange.High }}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Smile Detection
+                            </div>
+
+                            <div class="metric-value
+                                {% if face.Smile.Value %}
+                                    positive
+                                {% else %}
+                                    negative
+                                {% endif %}
+                            ">
+
+                                {% if face.Smile.Value %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Eyes Open
+                            </div>
+
+                            <div class="metric-value
+                                {% if face.EyesOpen.Value %}
+                                    positive
+                                {% else %}
+                                    negative
+                                {% endif %}
+                            ">
+
+                                {% if face.EyesOpen.Value %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Mouth Open
+                            </div>
+
+                            <div class="metric-value">
+
+                                {% if face.MouthOpen.Value %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Eyeglasses
+                            </div>
+
+                            <div class="metric-value">
+
+                                {% if face.Eyeglasses.Value %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Sunglasses
+                            </div>
+
+                            <div class="metric-value">
+
+                                {% if face.Sunglasses.Value %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Image Brightness
+                            </div>
+
+                            <div class="metric-value">
+
+                                {{ "%.2f"|format(
+                                    face.Quality.Brightness
+                                ) }}
+
+                            </div>
+
+                        </div>
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Image Sharpness
+                            </div>
+
+                            <div class="metric-value">
+
+                                {{ "%.2f"|format(
+                                    face.Quality.Sharpness
+                                ) }}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    
+
+                    <h3 class="section-title">
+                        🎭 Emotion Intelligence
+                    </h3>
+
+                    {% for emotion in face.Emotions %}
+
+                    <div class="emotion-row">
+
+                        <strong>
+                            {{ emotion.Type }}
+                        </strong>
+
+                        <div class="emotion-track">
+
+                            <div
+                                class="emotion-fill"
+                                style="
+                                    width:
+                                    {{ emotion.Confidence }}%;
+                                "
+                            >
+                            </div>
+
+                        </div>
+
+                        <span>
+
+                            {{ "%.2f"|format(
+                                emotion.Confidence
+                            ) }}%
+
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                    
+
+                    <div class="sub-grid">
+
+                        <div class="mini-card">
+
+                            <h4>
+                                🧭 Head Pose Analysis
+                            </h4>
+
+                            <div class="data-line">
+
+                                <span>Yaw</span>
+
+                                <strong>
+
+                                    {{ "%.2f"|format(
+                                        face.Pose.Yaw
+                                    ) }}°
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>Pitch</span>
+
+                                <strong>
+
+                                    {{ "%.2f"|format(
+                                        face.Pose.Pitch
+                                    ) }}°
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>Roll</span>
+
+                                <strong>
+
+                                    {{ "%.2f"|format(
+                                        face.Pose.Roll
+                                    ) }}°
+
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mini-card">
+
+                            <h4>
+                                🎯 Face Location
+                            </h4>
+
+                            <div class="data-line">
+
+                                <span>Left</span>
+
+                                <strong>
+
+                                    {{ "%.4f"|format(
+                                        face.BoundingBox.Left
+                                    ) }}
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>Top</span>
+
+                                <strong>
+
+                                    {{ "%.4f"|format(
+                                        face.BoundingBox.Top
+                                    ) }}
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>Width</span>
+
+                                <strong>
+
+                                    {{ "%.4f"|format(
+                                        face.BoundingBox.Width
+                                    ) }}
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>Height</span>
+
+                                <strong>
+
+                                    {{ "%.4f"|format(
+                                        face.BoundingBox.Height
+                                    ) }}
+
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mini-card">
+
+                            <h4>
+                                🤖 Detection Confidence
+                            </h4>
+
+                            <div class="data-line">
+
+                                <span>
+                                    Smile Confidence
+                                </span>
+
+                                <strong>
+
+                                    {{ "%.2f"|format(
+                                        face.Smile.Confidence
+                                    ) }}%
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>
+                                    Eyes Confidence
+                                </span>
+
+                                <strong>
+
+                                    {{ "%.2f"|format(
+                                        face.EyesOpen.Confidence
+                                    ) }}%
+
+                                </strong>
+
+                            </div>
+
+                            <div class="data-line">
+
+                                <span>
+                                    Mouth Confidence
+                                </span>
+
+                                <strong>
+
+                                    {{ "%.2f"|format(
+                                        face.MouthOpen.Confidence
+                                    ) }}%
+
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+                <div class="info-box">
+
+                    ℹ Results are generated by
+                    <strong>
+                        Amazon Rekognition DetectFaces
+                    </strong>.
+
+                    Facial attributes such as age range
+                    and emotions are AI-generated estimates
+                    and should not be treated as verified
+                    personal facts.
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    VisionAI Pro | SmartPresence Registration
+</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4f7fc,
+            #edf2f9
+        );
+
+    color: #172033;
+}
+
+.navbar {
+
+    background:
+        linear-gradient(
+            120deg,
+            #06152e,
+            #102a56
+        );
+
+    color: white;
+
+    padding:
+        17px 5%;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.18);
+}
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.brand-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4778ff,
+            #923cff
+        );
+}
+
+.brand h2 {
+
+    margin: 0;
+}
+
+.brand small {
+
+    color: #b8cae9;
+}
+
+.aws-badge {
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    text-align: center;
+}
+
+.aws-badge strong {
+
+    display: block;
+}
+
+.aws-badge span {
+
+    color: #ffb44c;
+
+    font-size: 12px;
+}
+
+.hero {
+
+    padding:
+        55px 5%
+        90px;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(66,123,255,.36),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(117,65,255,.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            120deg,
+            #06152e,
+            #0b2d5c
+        );
+}
+
+.hero-inner {
+
+    max-width: 1450px;
+
+    margin: auto;
+}
+
+.hero-label {
+
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    margin-bottom: 15px;
+
+    font-size: 13px;
+}
+
+.hero h1 {
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        clamp(
+            38px,
+            4vw,
+            58px
+        );
+}
+
+.hero h1 span {
+
+    color: #8dacff;
+}
+
+.hero p {
+
+    max-width: 850px;
+
+    color: #c9d7ed;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.container {
+
+    width: 94%;
+
+    max-width: 1300px;
+
+    margin:
+        -45px auto
+        60px;
+}
+
+.workspace {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(380px, 500px)
+        1fr;
+
+    gap: 22px;
+}
+
+.panel {
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 26px;
+
+    box-shadow:
+        0 12px 40px
+        rgba(31,56,97,.10);
+}
+
+.panel h2 {
+
+    margin-top: 0;
+
+    color: #1d355c;
+}
+
+.form-group {
+
+    margin-bottom: 17px;
+}
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #415473;
+}
+
+.form-control {
+
+    width: 100%;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid
+        #d7dfea;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background: #fff;
+}
+
+.form-control:focus {
+
+    border-color: #6d84ff;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(83,105,255,.10);
+}
+
+.upload-box {
+
+    padding:
+        25px 18px;
+
+    border:
+        2px dashed
+        #c5d0e3;
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fbfdff,
+            #f5f8ff
+        );
+}
+
+.upload-icon {
+
+    font-size: 44px;
+}
+
+.upload-box h3 {
+
+    margin:
+        8px 0;
+}
+
+.upload-box p {
+
+    color: #748096;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+.file-input {
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 10px;
+
+    background: white;
+
+    border:
+        1px solid
+        #d7dfea;
+
+    border-radius: 10px;
+}
+
+.register-btn {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4778ff,
+            #823cff
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(80,82,240,.22);
+}
+
+.error {
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #fff0f0;
+
+    border:
+        1px solid
+        #ffc7c7;
+
+    color: #a12626;
+
+    margin-bottom: 18px;
+}
+
+.success {
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf9ef,
+            #f6fffa
+        );
+
+    border:
+        1px solid
+        #c4e9d0;
+
+    color: #176737;
+
+    margin-bottom: 20px;
+}
+
+.preview-card {
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        #e2e7f0;
+
+    background: #111827;
+
+    margin-top: 20px;
+}
+
+.preview-card img {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 440px;
+
+    object-fit: contain;
+}
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 13px;
+
+    margin-top: 18px;
+}
+
+.info-card {
+
+    padding: 17px;
+
+    border-radius: 14px;
+
+    background: #f7f9fd;
+
+    border:
+        1px solid
+        #e4e9f2;
+}
+
+.info-card .label {
+
+    color: #79859a;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 6px;
+}
+
+.info-card .value {
+
+    font-weight: 800;
+
+    color: #253f6a;
+
+    overflow-wrap: anywhere;
+}
+
+.architecture {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3f7ff,
+            #f9f6ff
+        );
+
+    color: #465b7d;
+
+    line-height: 1.7;
+}
+
+.architecture strong {
+
+    color: #253e69;
+}
+
+.actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.action-link {
+
+    display: inline-block;
+
+    padding:
+        11px 16px;
+
+    border-radius: 10px;
+
+    background: #eef3ff;
+
+    color: #425bc6;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 13px;
+}
+
+@media(max-width:900px) {
+
+    .workspace {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+@media(max-width:550px) {
+
+    .info-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🧠
+        </div>
+
+        <div>
+
+            <h2>
+                VisionAI Pro
+            </h2>
+
+            <small>
+                SmartPresence AI
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="aws-badge">
+
+        <strong>
+            AWS
+        </strong>
+
+        <span>
+            Rekognition + DynamoDB
+        </span>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-inner">
+
+    <div class="hero-label">
+
+        📝 SmartPresence Student Enrollment
+
+    </div>
+
+    <h1>
+
+        Register Students Into
+        <span>
+            AI Attendance
+        </span>
+
+    </h1>
+
+    <p>
+
+        Enroll a student by storing student
+        metadata in Amazon DynamoDB and
+        indexing the student's facial
+        features into the Amazon Rekognition
+        face collection.
+
+    </p>
+
+</div>
+
+</section>
+
+<main class="container">
+
+<div class="workspace">
+
+<section class="panel">
+
+<h2>
+    👤 Student Registration
+</h2>
+
+{% if error %}
+
+<div class="error">
+
+    ⚠ {{ error }}
+
+</div>
+
+{% endif %}
+
+{% if success %}
+
+<div class="success">
+
+    <strong>
+        ✅ Student registered successfully
+    </strong>
+
+    <br><br>
+
+    {{ student_name }}
+    has been enrolled into SmartPresence.
+
+</div>
+
+{% endif %}
+
+<form
+    method="POST"
+    enctype="multipart/form-data"
+>
+
+<div class="form-group">
+
+    <label>
+        Student ID
+    </label>
+
+    <input
+
+        class="form-control"
+
+        type="text"
+
+        name="student_id"
+
+        placeholder="Example: STU001"
+
+        value="{{ student_id or '' }}"
+
+        required
+    >
+
+</div>
+
+<div class="form-group">
+
+    <label>
+        Student Name
+    </label>
+
+    <input
+
+        class="form-control"
+
+        type="text"
+
+        name="student_name"
+
+        placeholder="Enter full name"
+
+        value="{{ student_name or '' }}"
+
+        required
+    >
+
+</div>
+
+<div class="form-group">
+
+    <label>
+        Email
+    </label>
+
+    <input
+
+        class="form-control"
+
+        type="email"
+
+        name="email"
+
+        placeholder="student@example.com"
+
+    >
+
+</div>
+
+<div class="form-group">
+
+    <label>
+        Course / Batch
+    </label>
+
+    <input
+
+        class="form-control"
+
+        type="text"
+
+        name="course"
+
+        placeholder="Example: AWS DevOps Batch 01"
+
+    >
+
+</div>
+
+<div class="upload-box">
+
+    <div class="upload-icon">
+        📸
+    </div>
+
+    <h3>
+        Student Face Image
+    </h3>
+
+    <p>
+
+        Use one clear front-facing image.
+        Good lighting and a visible face
+        provide better registration quality.
+
+    </p>
+
+    <input
+
+        class="file-input"
+
+        type="file"
+
+        name="image"
+
+        accept=".jpg,.jpeg,.png"
+
+        required
+    >
+
+</div>
+
+<button
+    class="register-btn"
+    type="submit"
+>
+
+    ✨ Register Student Into SmartPresence
+
+</button>
+
+</form>
+
+{% if image_preview %}
+
+<div class="preview-card">
+
+    <img
+        src="{{ image_preview }}"
+        alt="Student registration image"
+    >
+
+</div>
+
+{% endif %}
+
+<div class="actions">
+
+    <a
+        class="action-link"
+        href="/smart-presence"
+    >
+        📊 Attendance Dashboard
+    </a>
+
+    <a
+        class="action-link"
+        href="/"
+    >
+        ← VisionAI Dashboard
+    </a>
+
+</div>
+
+</section>
+
+<section class="panel">
+
+<h2>
+    🧬 AI Enrollment Intelligence
+</h2>
+
+{% if success %}
+
+<div class="info-grid">
+
+    <div class="info-card">
+
+        <div class="label">
+            Student ID
+        </div>
+
+        <div class="value">
+            {{ student_id }}
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="label">
+            Student Name
+        </div>
+
+        <div class="value">
+            {{ student_name }}
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="label">
+            Rekognition Face ID
+        </div>
+
+        <div class="value">
+            {{ face_id }}
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="label">
+            Face Collection
+        </div>
+
+        <div class="value">
+            smart-vision-students
+        </div>
+
+    </div>
+
+</div>
+
+<div class="architecture">
+
+<strong>
+    Registration completed
+</strong>
+
+<br><br>
+
+Student image
+
+<br>
+↓
+<br>
+
+Amazon Rekognition
+<strong>IndexFaces</strong>
+
+<br>
+↓
+<br>
+
+Face vector stored in
+
+<strong>
+smart-vision-students
+</strong>
+
+<br>
+↓
+<br>
+
+Student metadata stored in
+
+<strong>
+VisionAI-Students
+</strong>
+
+<br>
+↓
+<br>
+
+Student is ready for future attendance recognition.
+
+</div>
+
+{% else %}
+
+<div class="architecture">
+
+<strong>
+    SmartPresence Registration Flow
+</strong>
+
+<br><br>
+
+Student Details + Face Image
+
+<br>
+↓
+
+<br>
+
+Flask Backend
+
+<br>
+↓
+
+<br>
+
+Amazon Rekognition
+<strong>IndexFaces</strong>
+
+<br>
+↓
+
+<br>
+
+Face ID +
+External Student ID
+
+<br>
+↓
+
+<br>
+
+Amazon DynamoDB
+
+<br>
+↓
+
+<br>
+
+Student Enrollment Complete
+
+</div>
+
+<div class="info-grid">
+
+    <div class="info-card">
+
+        <div class="label">
+            Rekognition Collection
+        </div>
+
+        <div class="value">
+            smart-vision-students
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="label">
+            Student Database
+        </div>
+
+        <div class="value">
+            VisionAI-Students
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="label">
+            Registration API
+        </div>
+
+        <div class="value">
+            IndexFaces
+        </div>
+
+    </div>
+
+    <div class="info-card">
+
+        <div class="label">
+            Recognition API
+        </div>
+
+        <div class="value">
+            SearchFacesByImage
+        </div>
+
+    </div>
+
+</div>
+
+{% endif %}
+
+</section>
+
+</div>
+
+</main>
+
+</body>
+
+</html>

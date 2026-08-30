@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    VisionAI Pro | SmartPresence Dashboard
+</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4f7fc,
+            #edf2f9
+        );
+
+    color: #172033;
+}
+
+.navbar {
+
+    background:
+        linear-gradient(
+            120deg,
+            #06152e,
+            #102a56
+        );
+
+    color: white;
+
+    padding:
+        17px 5%;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+}
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.brand-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4778ff,
+            #923cff
+        );
+}
+
+.brand h2 {
+
+    margin: 0;
+}
+
+.brand small {
+
+    color: #b8cae9;
+}
+
+.aws-badge {
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    text-align: center;
+}
+
+.aws-badge strong {
+
+    display: block;
+}
+
+.aws-badge span {
+
+    color: #ffb44c;
+
+    font-size: 12px;
+}
+
+.hero {
+
+    padding:
+        55px 5%
+        90px;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(74,118,255,.38),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            120deg,
+            #06152e,
+            #0b2d5c
+        );
+}
+
+.hero-inner {
+
+    max-width: 1450px;
+
+    margin: auto;
+}
+
+.hero-label {
+
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    font-size: 13px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+
+    margin:
+        0 0 12px;
+
+    font-size:
+        clamp(
+            38px,
+            4vw,
+            58px
+        );
+}
+
+.hero h1 span {
+
+    color: #8dacff;
+}
+
+.hero p {
+
+    max-width: 850px;
+
+    color: #c9d7ed;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.container {
+
+    width: 94%;
+
+    max-width: 1450px;
+
+    margin:
+        -45px auto
+        60px;
+}
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.stat-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.09);
+}
+
+.stat-label {
+
+    color: #78859a;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.stat-value {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: #1d3d72;
+}
+
+.actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+}
+
+.action-btn {
+
+    display: inline-block;
+
+    padding:
+        13px 18px;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 14px;
+}
+
+.primary {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4778ff,
+            #823cff
+        );
+}
+
+.secondary {
+
+    color: #425bc6;
+
+    background: #edf2ff;
+}
+
+.panel {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    margin-bottom: 24px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.09);
+}
+
+.panel h2 {
+
+    margin-top: 0;
+
+    color: #1e3d69;
+}
+
+.table-wrapper {
+
+    overflow-x: auto;
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th {
+
+    text-align: left;
+
+    padding: 12px;
+
+    background: #f3f6fc;
+
+    color: #425a7d;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+}
+
+td {
+
+    padding: 12px;
+
+    border-top:
+        1px solid
+        #edf0f5;
+
+    font-size: 13px;
+
+    color: #3c4e69;
+}
+
+.status {
+
+    display: inline-block;
+
+    padding:
+        6px 10px;
+
+    border-radius: 20px;
+
+    background: #e7f8ed;
+
+    color: #177b39;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+.empty {
+
+    padding: 24px;
+
+    text-align: center;
+
+    background: #f7f9fd;
+
+    border-radius: 14px;
+
+    color: #6f7c91;
+}
+
+.error {
+
+    padding: 15px;
+
+    background: #fff0f0;
+
+    border:
+        1px solid
+        #ffc7c7;
+
+    color: #a12626;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+@media(max-width:950px) {
+
+    .stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px) {
+
+    .stats {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="brand">
+
+    <div class="brand-icon">
+        🧠
+    </div>
+
+    <div>
+
+        <h2>
+            VisionAI Pro
+        </h2>
+
+        <small>
+            SmartPresence AI
+        </small>
+
+    </div>
+
+</div>
+
+<div class="aws-badge">
+
+    <strong>
+        AWS
+    </strong>
+
+    <span>
+        Rekognition + DynamoDB
+    </span>
+
+</div>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<div class="hero-label">
+
+    📝 SmartPresence Attendance Intelligence
+
+</div>
+
+<h1>
+
+    AI-Powered
+    <span>
+        Attendance Dashboard
+    </span>
+
+</h1>
+
+<p>
+
+    Manage student enrollment, review attendance records,
+    and monitor SmartPresence activity powered by Amazon
+    Rekognition and DynamoDB.
+
+</p>
+
+</div>
+
+</section>
+
+<main class="container">
+
+{% if error %}
+
+<div class="error">
+
+    ⚠ {{ error }}
+
+</div>
+
+{% endif %}
+
+<section class="stats">
+
+<div class="stat-card">
+
+    <div class="stat-label">
+        Registered Students
+    </div>
+
+    <div class="stat-value">
+
+        {{ student_count }}
+
+    </div>
+
+</div>
+
+<div class="stat-card">
+
+    <div class="stat-label">
+        Present Today
+    </div>
+
+    <div class="stat-value">
+
+        {{ today_count }}
+
+    </div>
+
+</div>
+
+<div class="stat-card">
+
+    <div class="stat-label">
+        Total Attendance Records
+    </div>
+
+    <div class="stat-value">
+
+        {{ total_attendance }}
+
+    </div>
+
+</div>
+
+<div class="stat-card">
+
+    <div class="stat-label">
+        Today
+    </div>
+
+    <div class="stat-value">
+
+        {{ today }}
+
+    </div>
+
+</div>
+
+</section>
+
+<div class="actions">
+
+<a
+    class="action-btn primary"
+    href="/smart-presence/register"
+>
+
+    👤 Register New Student
+
+</a>
+
+<a
+    class="action-btn secondary"
+    href="/face-liveness"
+>
+
+    🛡 Start Live Verification
+
+</a>
+
+<a
+    class="action-btn secondary"
+    href="/"
+>
+
+    ← VisionAI Dashboard
+
+</a>
+
+</div>
+
+<section class="panel">
+
+<h2>
+    👥 Registered Students
+</h2>
+
+{% if students %}
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>
+        Student ID
+    </th>
+
+    <th>
+        Name
+    </th>
+
+    <th>
+        Email
+    </th>
+
+    <th>
+        Course
+    </th>
+
+    <th>
+        Face ID
+    </th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for student in students %}
+
+<tr>
+
+    <td>
+
+        <strong>
+            {{ student.student_id }}
+        </strong>
+
+    </td>
+
+    <td>
+        {{ student.student_name }}
+    </td>
+
+    <td>
+        {{ student.email or "-" }}
+    </td>
+
+    <td>
+        {{ student.course or "-" }}
+    </td>
+
+    <td>
+
+        {{ student.face_id or "-" }}
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% else %}
+
+<div class="empty">
+
+    No students registered yet.
+
+    <br><br>
+
+    Use
+    <strong>
+        Register New Student
+    </strong>
+    to begin.
+
+</div>
+
+{% endif %}
+
+</section>
+
+<section class="panel">
+
+<h2>
+    📋 Attendance Records
+</h2>
+
+{% if attendance %}
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+    <th>
+        Student ID
+    </th>
+
+    <th>
+        Student Name
+    </th>
+
+    <th>
+        Date
+    </th>
+
+    <th>
+        Time
+    </th>
+
+    <th>
+        Face Similarity
+    </th>
+
+    <th>
+        Liveness
+    </th>
+
+    <th>
+        Status
+    </th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in attendance %}
+
+<tr>
+
+    <td>
+
+        <strong>
+            {{ item.student_id }}
+        </strong>
+
+    </td>
+
+    <td>
+        {{ item.student_name }}
+    </td>
+
+    <td>
+        {{ item.date }}
+    </td>
+
+    <td>
+        {{ item.time }}
+    </td>
+
+    <td>
+
+        {{ item.similarity }}%
+
+    </td>
+
+    <td>
+
+        {{ item.liveness_confidence }}%
+
+    </td>
+
+    <td>
+
+        <span class="status">
+
+            {{ item.status }}
+
+        </span>
+
+    </td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% else %}
+
+<div class="empty">
+
+    No attendance records available yet.
+
+    <br><br>
+
+    The next step is to connect:
+
+    <strong>
+        LiveVerify → Face Recognition → Attendance
+    </strong>
+
+</div>
+
+{% endif %}
+
+</section>
+
+</main>
+
+</body>
+
+</html>

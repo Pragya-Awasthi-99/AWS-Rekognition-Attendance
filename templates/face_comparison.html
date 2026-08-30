@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    VisionAI Pro | Identity Match
+</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f5f8ff,
+            #edf2f9
+        );
+
+    color: #172033;
+}
+
+.navbar {
+
+    background:
+        linear-gradient(
+            120deg,
+            #06152e,
+            #102a56
+        );
+
+    color: white;
+
+    padding:
+        18px
+        5%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.18);
+}
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.brand-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4778ff,
+            #923cff
+        );
+}
+
+.brand h2 {
+
+    margin: 0;
+}
+
+.brand small {
+
+    color: #b7c8e7;
+}
+
+.aws-badge {
+
+    padding:
+        10px 18px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+.aws-badge strong {
+
+    display: block;
+}
+
+.aws-badge span {
+
+    color: #ffb44b;
+
+    font-size: 12px;
+}
+
+.hero {
+
+    color: white;
+
+    padding:
+        45px 5%
+        75px;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 35%,
+            rgba(67,111,255,.40),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            120deg,
+            #06152e,
+            #0b2d5c
+        );
+}
+
+.hero-inner {
+
+    max-width: 1450px;
+
+    margin: auto;
+}
+
+.hero-label {
+
+    display: inline-block;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 30px;
+
+    padding:
+        8px 14px;
+
+    margin-bottom: 14px;
+
+    font-size: 13px;
+}
+
+.hero h1 {
+
+    margin:
+        0 0 10px;
+
+    font-size:
+        clamp(
+            38px,
+            4vw,
+            56px
+        );
+}
+
+.hero h1 span {
+
+    color: #78a1ff;
+}
+
+.hero p {
+
+    max-width: 760px;
+
+    color: #c8d6ed;
+
+    line-height: 1.6;
+
+    font-size: 17px;
+}
+
+.container {
+
+    width: 94%;
+
+    max-width: 1450px;
+
+    margin:
+        -40px auto
+        60px;
+}
+
+.workspace {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(360px, 520px)
+        1fr;
+
+    gap: 22px;
+}
+
+.panel {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.09);
+}
+
+.panel-title {
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    margin:
+        0 0 20px;
+}
+
+.step {
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: white;
+
+    font-size: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4778ff,
+            #843cff
+        );
+}
+
+.image-section {
+
+    margin-bottom: 18px;
+}
+
+.image-section h3 {
+
+    margin:
+        0 0 10px;
+
+    color: #293d62;
+}
+
+.upload-box {
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    border:
+        2px dashed
+        #bdcbe5;
+
+    background: #f8faff;
+
+    text-align: center;
+}
+
+.upload-icon {
+
+    font-size: 37px;
+
+    margin-bottom: 5px;
+}
+
+.upload-box p {
+
+    color: #76839a;
+
+    font-size: 13px;
+}
+
+input[type=file] {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 10px;
+
+    border:
+        1px solid
+        #d8dfeb;
+
+    border-radius: 8px;
+
+    background: white;
+}
+
+.compare-btn {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    background:
+        linear-gradient(
+            90deg,
+            #3c70ff,
+            #8b3cff
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(91,76,255,.25);
+}
+
+.preview-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 14px;
+
+    margin-top: 20px;
+}
+
+.preview-card {
+
+    border:
+        1px solid
+        #e0e6ef;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #f7f9fc;
+}
+
+.preview-title {
+
+    padding:
+        10px 12px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #32476c;
+}
+
+.preview-card img {
+
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: contain;
+
+    display: block;
+
+    background: #111827;
+}
+
+.preview-meta {
+
+    padding: 10px;
+
+    color: #6d7890;
+
+    font-size: 11px;
+
+    word-break: break-all;
+}
+
+.error {
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    color: #a12525;
+
+    background: #fff0f0;
+
+    border:
+        1px solid
+        #ffcaca;
+
+    margin-bottom: 16px;
+}
+
+.ready {
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: #f3f7ff;
+
+    color: #3c5d91;
+
+    line-height: 1.6;
+}
+
+.result-status {
+
+    text-align: center;
+
+    padding: 28px;
+
+    border-radius: 18px;
+
+    margin-bottom: 22px;
+}
+
+.result-status.match {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e6faed,
+            #f4fff8
+        );
+
+    border:
+        1px solid
+        #bce9ca;
+
+    color: #14743a;
+}
+
+.result-status.no-match {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f0,
+            #fffafa
+        );
+
+    border:
+        1px solid
+        #f3c3c3;
+
+    color: #9c2929;
+}
+
+.result-icon {
+
+    font-size: 46px;
+
+    margin-bottom: 8px;
+}
+
+.result-status h2 {
+
+    margin:
+        5px 0;
+}
+
+.similarity {
+
+    font-size: 46px;
+
+    font-weight: 800;
+
+    margin-top: 8px;
+}
+
+.metrics {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px,1fr)
+        );
+
+    gap: 12px;
+}
+
+.metric {
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fafcff,
+            #f4f7fb
+        );
+
+    border:
+        1px solid
+        #e7ebf3;
+}
+
+.metric-label {
+
+    color: #748095;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .4px;
+
+    margin-bottom: 8px;
+}
+
+.metric-value {
+
+    color: #19335f;
+
+    font-size: 21px;
+
+    font-weight: 800;
+}
+
+.score-box {
+
+    margin-top: 22px;
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background: #fafbff;
+
+    border:
+        1px solid
+        #e2e7f0;
+}
+
+.score-heading {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.score-track {
+
+    height: 15px;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+    background: #e8ecf3;
+}
+
+.score-fill {
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4075ff,
+            #8641ff
+        );
+}
+
+.info {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: #edf6ff;
+
+    color: #315f9c;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.back {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    font-weight: 700;
+
+    color: #4c63d8;
+
+    text-decoration: none;
+}
+
+@media(max-width:900px) {
+
+    .workspace {
+
+        grid-template-columns: 1fr;
+    }
+
+    .preview-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .preview-card img {
+
+        height: 330px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            🧠
+        </div>
+
+        <div>
+
+            <h2>
+                VisionAI Pro
+            </h2>
+
+            <small>
+                Intelligent Visual Insights
+            </small>
+
+        </div>
+
+    </div>
+
+    <div class="aws-badge">
+
+        <strong>
+            AWS
+        </strong>
+
+        <span>
+            Amazon Rekognition
+        </span>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-inner">
+
+        <div class="hero-label">
+            🔍 VisionAI Identity Engine
+        </div>
+
+        <h1>
+            Intelligent
+            <span>
+                Face Comparison
+            </span>
+        </h1>
+
+        <p>
+            Compare two facial images with Amazon
+            Rekognition and visualize AI-generated
+            similarity scores, confidence levels and
+            matching results.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="container">
+
+<div class="workspace">
+
+<section class="panel">
+
+    <h2 class="panel-title">
+
+        <span class="step">
+            1
+        </span>
+
+        Identity Comparison Studio
+
+    </h2>
+
+    <form
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <div class="image-section">
+
+            <h3>
+                👤 Source Identity
+            </h3>
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <strong>
+                    Upload Reference Image
+                </strong>
+
+                <p>
+                    Choose a clear image containing
+                    the face you want to verify.
+                </p>
+
+                <input
+                    type="file"
+                    name="source_image"
+                    accept=".jpg,.jpeg,.png"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+        <div class="image-section">
+
+            <h3>
+                🎯 Target Identity
+            </h3>
+
+            <div class="upload-box">
+
+                <div class="upload-icon">
+                    🖼️
+                </div>
+
+                <strong>
+                    Upload Comparison Image
+                </strong>
+
+                <p>
+                    Choose the image that should be
+                    compared against the reference.
+                </p>
+
+                <input
+                    type="file"
+                    name="target_image"
+                    accept=".jpg,.jpeg,.png"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+        <button
+            class="compare-btn"
+            type="submit"
+        >
+            ✨ Run Identity Match
+        </button>
+
+    </form>
+
+    {% if source_preview or target_preview %}
+
+    <div class="preview-grid">
+
+        {% if source_preview %}
+
+        <div class="preview-card">
+
+            <div class="preview-title">
+                Source Image
+            </div>
+
+            <img
+                src="{{ source_preview }}"
+                alt="Source image"
+            >
+
+            <div class="preview-meta">
+
+                {% if source_filename %}
+
+                    {{ source_filename }}
+
+                {% endif %}
+
+                {% if source_size %}
+
+                    • {{ source_size }} KB
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        {% if target_preview %}
+
+        <div class="preview-card">
+
+            <div class="preview-title">
+                Target Image
+            </div>
+
+            <img
+                src="{{ target_preview }}"
+                alt="Target image"
+            >
+
+            <div class="preview-meta">
+
+                {% if target_filename %}
+
+                    {{ target_filename }}
+
+                {% endif %}
+
+                {% if target_size %}
+
+                    • {{ target_size }} KB
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+    <a
+        href="/"
+        class="back"
+    >
+        ← Return to VisionAI Dashboard
+    </a>
+
+</section>
+
+<section class="panel">
+
+    <h2 class="panel-title">
+
+        <span class="step">
+            2
+        </span>
+
+        AI Identity Match Report
+
+    </h2>
+
+    {% if error %}
+
+    <div class="error">
+
+        ⚠ {{ error }}
+
+    </div>
+
+    {% endif %}
+
+    {% if not best_match
+          and not error
+          and similarity is not defined %}
+
+    <div class="ready">
+
+        <strong>
+            Identity Engine Ready
+        </strong>
+
+        <br><br>
+
+        Upload a reference face and a target
+        face to generate an Amazon Rekognition
+        similarity analysis.
+
+    </div>
+
+    {% endif %}
+
+    {% if similarity is defined %}
+
+        {% if is_match %}
+
+        <div class="result-status match">
+
+            <div class="result-icon">
+                ✅
+            </div>
+
+            <h2>
+                Identity Match Detected
+            </h2>
+
+            <div class="similarity">
+
+                {{ "%.2f"|format(
+                    similarity
+                ) }}%
+
+            </div>
+
+            <div>
+                Face similarity confidence
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="result-status no-match">
+
+            <div class="result-icon">
+                ❌
+            </div>
+
+            <h2>
+                No Identity Match
+            </h2>
+
+            <div class="similarity">
+
+                {{ "%.2f"|format(
+                    similarity
+                ) }}%
+
+            </div>
+
+            <div>
+                Similarity below configured
+                {{ threshold }}% threshold
+            </div>
+
+        </div>
+
+        {% endif %}
+
+        <div class="metrics">
+
+            <div class="metric">
+
+                <div class="metric-label">
+                    Similarity Score
+                </div>
+
+                <div class="metric-value">
+
+                    {{ "%.2f"|format(
+                        similarity
+                    ) }}%
+
+                </div>
+
+            </div>
+
+            <div class="metric">
+
+                <div class="metric-label">
+                    Match Threshold
+                </div>
+
+                <div class="metric-value">
+
+                    {{ threshold }}%
+
+                </div>
+
+            </div>
+
+            <div class="metric">
+
+                <div class="metric-label">
+                    Faces Matched
+                </div>
+
+                <div class="metric-value">
+
+                    {{ match_count }}
+
+                </div>
+
+            </div>
+
+            <div class="metric">
+
+                <div class="metric-label">
+                    Unmatched Faces
+                </div>
+
+                <div class="metric-value">
+
+                    {{ unmatched_count }}
+
+                </div>
+
+            </div>
+
+            {% if best_match %}
+
+            <div class="metric">
+
+                <div class="metric-label">
+                    Target Face Confidence
+                </div>
+
+                <div class="metric-value">
+
+                    {{ "%.2f"|format(
+                        best_match.Face.Confidence
+                    ) }}%
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+            {% if source_face %}
+
+            <div class="metric">
+
+                <div class="metric-label">
+                    Source Face Confidence
+                </div>
+
+                <div class="metric-value">
+
+                    {{ "%.2f"|format(
+                        source_face.Confidence
+                    ) }}%
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="score-box">
+
+            <div class="score-heading">
+
+                <span>
+                    Similarity Intelligence
+                </span>
+
+                <span>
+                    {{ "%.2f"|format(
+                        similarity
+                    ) }}%
+                </span>
+
+            </div>
+
+            <div class="score-track">
+
+                <div
+                    class="score-fill"
+                    style="
+                        width:
+                        {{ similarity }}%;
+                    "
+                >
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            ℹ This result is generated using
+            <strong>
+                Amazon Rekognition CompareFaces
+            </strong>.
+
+            The similarity value is a probabilistic
+            model output. For important identity
+            decisions, applications should use
+            appropriate thresholds and additional
+            verification controls.
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+</div>
+
+</main>
+
+</body>
+
+</html>
