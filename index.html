@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    VisionAI Pro | AWS AI Vision Platform
+</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f4f7fc 0%,
+            #edf2f9 100%
+        );
+
+    color: #172033;
+}
+
+
+/* ======================================================
+   NAVBAR
+====================================================== */
+
+.navbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    background:
+        linear-gradient(
+            120deg,
+            #06152e,
+            #102a56
+        );
+
+    color: white;
+
+    padding:
+        17px 5%;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,.18);
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.brand-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4778ff,
+            #923cff
+        );
+
+    box-shadow:
+        0 10px 25px
+        rgba(86,76,255,.4);
+}
+
+
+.brand h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+}
+
+
+.brand small {
+
+    color: #b8cae9;
+}
+
+
+.aws-badge {
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    text-align: center;
+}
+
+
+.aws-badge strong {
+
+    display: block;
+}
+
+
+.aws-badge span {
+
+    font-size: 12px;
+
+    color: #ffb44c;
+}
+
+
+/* ======================================================
+   HERO
+====================================================== */
+
+.hero {
+
+    padding:
+        75px 5%
+        105px;
+
+    color: white;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 25%,
+            rgba(74,118,255,.38),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 92% 80%,
+            rgba(128,65,255,.26),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            120deg,
+            #06152e,
+            #0b2d5c
+        );
+}
+
+
+.hero-inner {
+
+    max-width: 1450px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.4fr
+        .6fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+
+.hero-label {
+
+    display: inline-block;
+
+    padding:
+        8px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    color: #cfe0ff;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+
+    margin:
+        0 0 18px;
+
+    font-size:
+        clamp(
+            43px,
+            5vw,
+            70px
+        );
+
+    line-height: 1.04;
+
+    letter-spacing: -2px;
+}
+
+
+.hero h1 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #75a2ff,
+            #a574ff
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color: transparent;
+}
+
+
+.hero p {
+
+    max-width: 880px;
+
+    color: #c4d3ec;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+.hero-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 24px;
+}
+
+
+.hero-tag {
+
+    padding:
+        9px 14px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    font-size: 13px;
+}
+
+
+.hero-visual {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.hero-ai-circle {
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 110px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(83,120,255,.38),
+            rgba(32,65,128,.12)
+        );
+
+    border:
+        1px solid
+        rgba(124,160,255,.28);
+
+    box-shadow:
+        0 0 90px
+        rgba(65,119,255,.36);
+
+    animation:
+        floating
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px);
+    }
+}
+
+
+/* ======================================================
+   MAIN
+====================================================== */
+
+.main-container {
+
+    width: 94%;
+
+    max-width: 1450px;
+
+    margin:
+        -55px auto
+        60px;
+}
+
+
+/* ======================================================
+   STATS
+====================================================== */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 16px;
+
+    margin-bottom: 35px;
+}
+
+
+.stat-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.09);
+
+    border:
+        1px solid
+        rgba(230,235,244,.9);
+}
+
+
+.stat-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf1ff,
+            #f3ecff
+        );
+}
+
+
+.stat-content h3 {
+
+    margin: 0;
+
+    font-size: 25px;
+
+    color: #19345f;
+}
+
+
+.stat-content span {
+
+    color: #768299;
+
+    font-size: 13px;
+}
+
+
+/* ======================================================
+   SECTION TITLE
+====================================================== */
+
+.section-heading {
+
+    margin:
+        35px 0
+        22px;
+}
+
+
+.section-heading h2 {
+
+    margin:
+        0 0 7px;
+
+    font-size: 30px;
+
+    color: #172d52;
+}
+
+
+.section-heading p {
+
+    margin: 0;
+
+    color: #718097;
+
+    line-height: 1.6;
+}
+
+
+/* ======================================================
+   FEATURE GRID
+====================================================== */
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            1fr
+        );
+
+    gap: 20px;
+}
+
+
+.feature-card {
+
+    min-height: 285px;
+
+    position: relative;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-decoration: none;
+
+    color: #172033;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.09);
+
+    border:
+        1px solid
+        rgba(224,230,240,.9);
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        border-color .25s;
+}
+
+
+.feature-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 130px;
+
+    height: 130px;
+
+    border-radius: 50%;
+
+    right: -50px;
+
+    bottom: -50px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(80,100,255,.10),
+            transparent 70%
+        );
+}
+
+
+a.feature-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        0 18px 42px
+        rgba(30,65,120,.16);
+}
+
+
+.feature-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 29px;
+
+    margin-bottom: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf1ff,
+            #f4ebff
+        );
+}
+
+
+.feature-card h3 {
+
+    margin:
+        0 0 10px;
+
+    font-size: 20px;
+
+    color: #18345f;
+}
+
+
+.feature-card p {
+
+    margin:
+        0 0 22px;
+
+    color: #6f7c91;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+
+/* ======================================================
+   BADGES
+====================================================== */
+
+.module-tag {
+
+    display: inline-block;
+
+    padding:
+        7px 11px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.module-tag.ready {
+
+    background: #e7f7ec;
+
+    color: #177b39;
+}
+
+
+/* ======================================================
+   MODULE 1
+====================================================== */
+
+.facial {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3468ff,
+            #7b3ff4
+        );
+
+    border: none;
+}
+
+
+.facial h3 {
+
+    color: white;
+}
+
+
+.facial p {
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .86
+        );
+}
+
+
+.facial .feature-icon {
+
+    background:
+        rgba(255,255,255,.16);
+}
+
+
+.facial .module-tag {
+
+    background:
+        rgba(255,255,255,.17);
+
+    color: white;
+}
+
+
+/* ======================================================
+   MODULE COLORS
+====================================================== */
+
+.identity {
+
+    border-color: #cbd8ff;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f7f9ff
+        );
+}
+
+
+.celebrity {
+
+    border-color: #efd69b;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fffef9,
+            #fff9ed
+        );
+}
+
+
+.celebrity .feature-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1b7,
+            #ffe0aa
+        );
+}
+
+
+.discovery {
+
+    border-color: #b9e4db;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f3fffb
+        );
+}
+
+
+.discovery .feature-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dffff6,
+            #e7f1ff
+        );
+}
+
+
+.ocr {
+
+    border-color: #d7c5ff;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #faf7ff
+        );
+}
+
+
+.ocr .feature-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee7ff,
+            #e7efff
+        );
+}
+
+
+.safety {
+
+    border-color: #f0c787;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #fff9ef
+        );
+}
+
+
+.safety .feature-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0ce,
+            #ffe2bd
+        );
+}
+
+
+.liveness {
+
+    border-color: #afdcff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3fbff,
+            #f7f4ff
+        );
+}
+
+
+.liveness .feature-icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dcf3ff,
+            #e9e2ff
+        );
+}
+
+
+.smartpresence {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #112c5c,
+            #4167ef,
+            #7c4cff
+        );
+
+    color: white;
+
+    box-shadow:
+        0 14px 38px
+        rgba(67,79,220,.24);
+}
+
+
+.smartpresence h3 {
+
+    color: white;
+}
+
+
+.smartpresence p {
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .88
+        );
+}
+
+
+.smartpresence .feature-icon {
+
+    background:
+        rgba(255,255,255,.16);
+
+    color: white;
+}
+
+
+.smartpresence .module-tag {
+
+    background:
+        rgba(255,255,255,.18);
+
+    color: white;
+}
+
+
+/* ======================================================
+   FINAL PROJECT BANNER
+====================================================== */
+
+.final-project {
+
+    margin-top: 32px;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    color: white;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr;
+
+    gap: 30px;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(135,91,255,.36),
+            transparent 32%
+        ),
+
+        linear-gradient(
+            120deg,
+            #071932,
+            #173a70
+        );
+
+    box-shadow:
+        0 12px 40px
+        rgba(25,53,101,.18);
+}
+
+
+.final-project h2 {
+
+    margin:
+        0 0 10px;
+
+    font-size: 27px;
+}
+
+
+.final-project p {
+
+    color: #c8d7ed;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+.flow {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+.flow-box {
+
+    padding:
+        10px 14px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+}
+
+
+/* ======================================================
+   TECHNOLOGY
+====================================================== */
+
+.platform-info {
+
+    margin-top: 30px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #f6f9ff
+        );
+
+    border-radius: 20px;
+
+    padding: 27px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto;
+
+    gap: 30px;
+
+    align-items: center;
+
+    box-shadow:
+        0 10px 35px
+        rgba(31,56,97,.08);
+}
+
+
+.platform-info h3 {
+
+    margin:
+        0 0 8px;
+
+    color: #1d355c;
+}
+
+
+.platform-info p {
+
+    margin: 0;
+
+    color: #6f7c91;
+
+    line-height: 1.6;
+}
+
+
+.platform-tech {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    max-width: 620px;
+}
+
+
+.tech-badge {
+
+    padding:
+        8px 12px;
+
+    border-radius: 20px;
+
+    background: #eef3fb;
+
+    color: #395276;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+.footer {
+
+    text-align: center;
+
+    padding:
+        30px 20px;
+
+    color: #748095;
+
+    font-size: 13px;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media(max-width:1150px) {
+
+    .feature-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+
+    .stats {
+
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+
+    .final-project {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+@media(max-width:750px) {
+
+    .hero-inner {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .hero-visual {
+
+        display: none;
+    }
+
+
+    .feature-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .stats {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .platform-info {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .aws-badge {
+
+        display: none;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ======================================================
+     NAVBAR
+====================================================== -->
+
+<header class="navbar">
+
+<div class="brand">
+
+    <div class="brand-icon">
+        🧠
+    </div>
+
+    <div>
+
+        <h2>
+            VisionAI Pro
+        </h2>
+
+        <small>
+            AWS AI Vision & SmartPresence
+        </small>
+
+    </div>
+
+</div>
+
+
+<div class="aws-badge">
+
+    <strong>
+        AWS
+    </strong>
+
+    <span>
+        Amazon Rekognition
+    </span>
+
+</div>
+
+</header>
+
+
+
+<!-- ======================================================
+     HERO
+====================================================== -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+
+<div>
+
+
+<span class="hero-label">
+
+    ✨ Complete AWS AI Vision Platform
+
+</span>
+
+
+<h1>
+
+    Intelligent Vision.
+
+    <br>
+
+    <span>
+        Intelligent Attendance.
+    </span>
+
+</h1>
+
+
+<p>
+
+    VisionAI Pro is an end-to-end AWS artificial
+    intelligence and computer vision platform.
+
+    Analyze faces, compare identities, recognize
+    celebrities, understand visual content,
+    extract text, monitor PPE safety, verify
+    live human presence and automate student
+    attendance using Amazon Rekognition and
+    DynamoDB.
+
+</p>
+
+
+<div class="hero-tags">
+
+
+<span class="hero-tag">
+    ☁ AWS Native
+</span>
+
+
+<span class="hero-tag">
+    🤖 Amazon Rekognition
+</span>
+
+
+<span class="hero-tag">
+    🛡 Face Liveness
+</span>
+
+
+<span class="hero-tag">
+    🗄 DynamoDB
+</span>
+
+
+<span class="hero-tag">
+    ⚛ React
+</span>
+
+
+<span class="hero-tag">
+    🐍 Flask
+</span>
+
+
+<span class="hero-tag">
+    🔐 Cognito + IAM
+</span>
+
+
+<span class="hero-tag">
+    🌐 HTTPS + Nginx
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="hero-visual">
+
+    <div class="hero-ai-circle">
+        👁️
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ======================================================
+     MAIN
+====================================================== -->
+
+<main class="main-container">
+
+
+<!-- ======================================================
+     STATS
+====================================================== -->
+
+<section class="stats">
+
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+        🤖
+    </div>
+
+    <div class="stat-content">
+
+        <h3>
+            8
+        </h3>
+
+        <span>
+            AI Vision Modules
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+        ✅
+    </div>
+
+    <div class="stat-content">
+
+        <h3>
+            8
+        </h3>
+
+        <span>
+            Live Modules
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+        🛡️
+    </div>
+
+    <div class="stat-content">
+
+        <h3>
+            Live
+        </h3>
+
+        <span>
+            Human Verification
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<div class="stat-card">
+
+    <div class="stat-icon">
+        📝
+    </div>
+
+    <div class="stat-content">
+
+        <h3>
+            AI
+        </h3>
+
+        <span>
+            Smart Attendance
+        </span>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- ======================================================
+     MODULE HEADING
+====================================================== -->
+
+<section class="section-heading">
+
+<h2>
+    AI Vision Intelligence Center
+</h2>
+
+<p>
+
+    All eight VisionAI modules are now part
+    of one AWS-powered learning platform.
+
+</p>
+
+</section>
+
+
+
+<!-- ======================================================
+     MODULE GRID
+====================================================== -->
+
+<section class="feature-grid">
+
+
+<!-- MODULE 1 -->
+
+<a
+    class="feature-card facial"
+    href="/facial-analysis"
+>
+
+<div class="feature-icon">
+    👤
+</div>
+
+<h3>
+    Facial Intelligence
+</h3>
+
+<p>
+
+    Analyze facial attributes,
+    emotion estimates, pose,
+    age range, image quality
+    and detection confidence.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 1 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 2 -->
+
+<a
+    class="feature-card identity"
+    href="/face-comparison"
+>
+
+<div class="feature-icon">
+    🔍
+</div>
+
+<h3>
+    Identity Match
+</h3>
+
+<p>
+
+    Compare two faces and calculate
+    AI-based similarity using Amazon
+    Rekognition CompareFaces.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 2 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 3 -->
+
+<a
+    class="feature-card celebrity"
+    href="/celebrity-recognition"
+>
+
+<div class="feature-icon">
+    ⭐
+</div>
+
+<h3>
+    Star Finder
+</h3>
+
+<p>
+
+    Identify celebrities recognized by
+    Amazon Rekognition and display
+    recognition confidence.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 3 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 4 -->
+
+<a
+    class="feature-card discovery"
+    href="/label-detection"
+>
+
+<div class="feature-icon">
+    🏷️
+</div>
+
+<h3>
+    Visual Discovery
+</h3>
+
+<p>
+
+    Detect objects, environments,
+    scenes and visual concepts using
+    Amazon Rekognition DetectLabels.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 4 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 5 -->
+
+<a
+    class="feature-card ocr"
+    href="/text-detection"
+>
+
+<div class="feature-icon">
+    🔤
+</div>
+
+<h3>
+    Vision OCR
+</h3>
+
+<p>
+
+    Extract lines and words from
+    signs, boards, posters and
+    screenshots using DetectText.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 5 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 6 -->
+
+<a
+    class="feature-card safety"
+    href="/ppe-detection"
+>
+
+<div class="feature-icon">
+    👷
+</div>
+
+<h3>
+    Safety Vision
+</h3>
+
+<p>
+
+    Detect head, face and hand
+    protective equipment and analyze
+    workplace PPE compliance.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 6 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 7 -->
+
+<a
+    class="feature-card liveness"
+    href="/face-liveness"
+>
+
+<div class="feature-icon">
+    🛡️
+</div>
+
+<h3>
+    LiveVerify
+</h3>
+
+<p>
+
+    Perform camera-based Face Liveness
+    verification to confirm that a real
+    human is physically present.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 7 — LIVE
+
+</span>
+
+</a>
+
+
+
+<!-- MODULE 8 -->
+
+<a
+    class="feature-card smartpresence"
+    href="/smart-presence"
+>
+
+<div class="feature-icon">
+    📝
+</div>
+
+<h3>
+    SmartPresence AI
+</h3>
+
+<p>
+
+    Register students, index facial
+    features, recognize identities,
+    record attendance and build an
+    intelligent AI attendance system.
+
+</p>
+
+<span class="module-tag ready">
+
+    ● MODULE 8 — FINAL PROJECT
+
+</span>
+
+</a>
+
+
+</section>
+
+
+
+<!-- ======================================================
+     FINAL PROJECT ARCHITECTURE
+====================================================== -->
+
+<section class="final-project">
+
+
+<div>
+
+
+<h2>
+
+    🎓 Final Project:
+    AI-Based Smart Attendance System
+
+</h2>
+
+
+<p>
+
+    SmartPresence combines the technologies
+    built across all previous modules into
+    one complete AWS application.
+
+    Students are enrolled into an Amazon
+    Rekognition face collection, metadata is
+    stored in DynamoDB, Face Liveness confirms
+    real human presence, and recognized students
+    can automatically receive attendance records.
+
+</p>
+
+
+</div>
+
+
+
+<div class="flow">
+
+
+<div class="flow-box">
+    Student Registration
+</div>
+
+<div>
+    ↓
+</div>
+
+<div class="flow-box">
+    Rekognition IndexFaces
+</div>
+
+<div>
+    ↓
+</div>
+
+<div class="flow-box">
+    Face Liveness
+</div>
+
+<div>
+    ↓
+</div>
+
+<div class="flow-box">
+    SearchFacesByImage
+</div>
+
+<div>
+    ↓
+</div>
+
+<div class="flow-box">
+    DynamoDB Attendance
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- ======================================================
+     TECHNOLOGY STACK
+====================================================== -->
+
+<section class="platform-info">
+
+
+<div>
+
+
+<h3>
+
+    🚀 AWS AI + DevOps Technology Stack
+
+</h3>
+
+
+<p>
+
+    VisionAI Pro now demonstrates a complete
+    cloud-native AI application architecture
+    using AWS-managed AI services, serverless
+    databases, frontend and backend frameworks,
+    authentication, HTTPS and reverse proxying.
+
+</p>
+
+
+</div>
+
+
+
+<div class="platform-tech">
+
+
+<span class="tech-badge">
+    Amazon Rekognition
+</span>
+
+
+<span class="tech-badge">
+    Face Collections
+</span>
+
+
+<span class="tech-badge">
+    Face Liveness
+</span>
+
+
+<span class="tech-badge">
+    DynamoDB
+</span>
+
+
+<span class="tech-badge">
+    Cognito
+</span>
+
+
+<span class="tech-badge">
+    IAM
+</span>
+
+
+<span class="tech-badge">
+    Python 3.12
+</span>
+
+
+<span class="tech-badge">
+    Flask
+</span>
+
+
+<span class="tech-badge">
+    Boto3
+</span>
+
+
+<span class="tech-badge">
+    React
+</span>
+
+
+<span class="tech-badge">
+    Amplify UI
+</span>
+
+
+<span class="tech-badge">
+    Nginx
+</span>
+
+
+<span class="tech-badge">
+    Route 53
+</span>
+
+
+<span class="tech-badge">
+    HTTPS
+</span>
+
+
+<span class="tech-badge">
+    EC2
+</span>
+
+
+<span class="tech-badge">
+    Docker
+</span>
+
+
+<span class="tech-badge">
+    ECR
+</span>
+
+
+<span class="tech-badge">
+    Jenkins
+</span>
+
+
+<span class="tech-badge">
+    CloudWatch
+</span>
+
+
+<span class="tech-badge">
+    Terraform
+</span>
+
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- ======================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+    VisionAI Pro
+    • AWS Artificial Intelligence
+    • Amazon Rekognition
+    • SmartPresence
+    • DevOps Learning Platform
+
+</footer>
+
+
+</body>
+
+</html>
