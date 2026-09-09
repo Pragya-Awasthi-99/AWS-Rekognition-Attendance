@@ -51,20 +51,14 @@ CORS(
 # ============================================================
 
 AWS_REGION = "ap-south-1"
-
-
 rekognition = boto3.client(
     "rekognition",
     region_name=AWS_REGION
 )
-
-
 dynamodb = boto3.resource(
     "dynamodb",
     region_name=AWS_REGION
 )
-
-
 # ============================================================
 # APPLICATION SETTINGS
 # ============================================================
